@@ -8,6 +8,7 @@ import random
 
 today = datetime.now()
 day = datetime.now().date()
+day = str(day)
 week = datetime.now().date().strftime("%A")
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
