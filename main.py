@@ -7,8 +7,8 @@ import os
 import random
 
 today = datetime.now()
-riqi = datetime.now().date()
-xingqi = datetime.now().date().strftime("%A")
+todaydate = datetime.now().date()
+week = datetime.now().date().strftime("%A")
 start_date = os.environ['START_DATE']
 city = os.environ['CITY']
 birthday = os.environ['BIRTHDAY']
@@ -50,7 +50,7 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temperature = get_weather()
-data = {"city":{"value":city},"riqi":{"value":riqi},"xingqi":{"value":xingqi},"weather":{"value":wea},"temperature":{"value":temperature},
+data = {"city":{"value":city},"todaydate":{"value":todaydate},"week":{"value":week},"weather":{"value":wea},"temperature":{"value":temperature},
         "love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
 print(res)
